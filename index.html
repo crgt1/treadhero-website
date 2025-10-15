@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TreadHero — Mobile Tire Experts</title>
+  <meta name="description" content="TreadHero — professional mobile tire service for new, used, rotation, balancing, and annual maintenance." />
+  <style>
+    :root {
+      --bg1: #ffffff;
+      --bg2: #f2f2f2;
+      --accent-red: #dc2626;
+      --text: #111;
+      --muted: #555;
+      font-family: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: linear-gradient(to bottom, var(--bg1), var(--bg2));
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 12px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-red);
+    }
+
+    .hero-image {
+      width: 260px;
+      max-width: 80vw;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: drop-shadow(0 0 15px rgba(220,38,38,0.4));
+      will-change: transform, filter;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 5rem);
+      font-weight: 800;
+      margin-top: 24px;
+      letter-spacing: -1px;
+    }
+
+    h1 span.tread { color: #fff; background: #000; padding: 6px 14px; border-radius: 10px; }
+    h1 span.hero { color: var(--accent-red); margin-left: 4px; }
+
+    section {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--accent-red);
+    }
+
+    p.feature {
+      max-width: 680px;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      background: var(--accent-red);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #b91c1c;
+    }
+
+    footer {
+      background: #eaeaea;
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#transparency">Transparency</a>
+    <a href="#performance">Performance</a>
+    <a href="#book">Book Now</a>
+  </nav>
+
+  <header id="hero">
+    <img src="superhero.png" alt="TreadHero flying with tires" class="hero-image" id="heroImage" />
+    <h1><span class="tread">Tread</span><span class="hero">Hero</span></h1>
+    <a href="#book" class="cta-button" style="margin-top:20px;">Book Your Service</a>
+  </header>
+
+  <section id="services">
+    <h2>Fast • Reliable • Mobile</h2>
+    <p class="feature">TreadHero brings premium tire service to your location — new, used, rotation, balancing, and repair on the spot.</p>
+  </section>
+
+  <section id="transparency">
+    <h2>Transparent Service</h2>
+    <p class="feature">Flat-rate pricing, real-time updates, and photo proof for every job — no surprises, no stress.</p>
+  </section>
+
+  <section id="performance">
+    <h2>Performance & Care</h2>
+    <p class="feature">Expert balancing and detailed tire care that keeps your vehicle smooth, safe, and road-ready all year.</p>
+  </section>
+
+  <section id="book">
+    <h2>Book Your Appointment</h2>
+    <p class="feature">Schedule your mobile tire service quickly and easily. Enter your info and we’ll come to you!</p>
+    <a href="mailto:book@treadhero.com" class="cta-button">Book Now via Email</a>
+  </section>
+
+  <footer>
+    © 2025 TreadHero — Premium Mobile Tire Experts.
+  </footer>
+
+  <script>
+    const hero = document.getElementById('heroImage');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const maxScroll = window.innerHeight;
+      const progress = Math.min(scrollTop / maxScroll, 1);
+      const scale = 1 + progress * 0.3;
+      const glow = 0.4 + progress * 1.2;
+      hero.style.transform = `scale(${scale})`;
+      hero.style.filter = `drop-shadow(0 0 ${30 * glow}px rgba(220,38,38,${glow}))`;
+    });
+  </script>
+
+</body>
+</html>
